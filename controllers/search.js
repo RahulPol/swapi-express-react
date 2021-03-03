@@ -28,7 +28,7 @@ exports.searchPlanets = async (req, res) => {
       constants.SWAPI_BASE_URL + "/planets?search=" + query
     );
     if (!response) {
-      return res.send([]);
+      res.status(200).send([]);
     }
     res.status(constants.HTTP_OK).send(response);
   } catch (err) {
