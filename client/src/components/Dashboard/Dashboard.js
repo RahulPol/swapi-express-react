@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 
-import { logout } from "../actions/session";
-import Planet from "./Planet";
+import { logout } from "../../actions/session";
+import Planet from "../Planet/Planet";
+
+import "./Dashboard.css";
 
 const mapStateToProps = ({ session }) => ({
   session,
@@ -30,6 +32,9 @@ const Dashboard = ({ logout, session }) => {
 
     const fetchData = async () => {
       try {
+        if (searchQuery === "") {
+          return;
+        }
         const response = await axios.get(
           "search/planets?searchStr=" + searchQuery,
           { cancelToken: cancelToken.token } //Pass the cancel token to the current request
@@ -56,16 +61,20 @@ const Dashboard = ({ logout, session }) => {
 
   return (
     <>
-      <h1>Hi {session.username}!</h1>
+      <div className="dashboard-header">
+        <h1>Hi {session.username}!</h1>
+        <button className="Button Danger" onClick={logout}>
+          Logout
+        </button>
+      </div>
       <div className="searchBar">
         <input
           type="text"
           placeholder="search for a planet"
           onChange={(e) => setSearchQuery(e.target.value)}
         ></input>
-        {planets}
+        <div className="planet-wrapper">{planets}</div>
       </div>
-      <button onClick={logout}>Logout</button>
     </>
   );
 };

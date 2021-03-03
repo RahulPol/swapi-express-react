@@ -1,0 +1,36 @@
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.Button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  border: 1px solid black;
+}
+
+.Danger {
+  color: #944317;
+}
+
+.searchBar input {
+  margin-top: 20px;
+  width: 95%;
+  height: 20px;
+}
+
+.planet-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
