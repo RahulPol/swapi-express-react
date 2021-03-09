@@ -30,7 +30,7 @@ app.use(
     cookie: {
       path: "/",
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       maxAge: parseInt(process.env.SESS_LIFETIME),
     },
   })
