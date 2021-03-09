@@ -28,7 +28,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      sameSite: true,
+      path: "/",
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: parseInt(process.env.SESS_LIFETIME),
